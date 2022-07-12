@@ -1,1 +1,1 @@
-# New_repository
+# Repository for SQL
