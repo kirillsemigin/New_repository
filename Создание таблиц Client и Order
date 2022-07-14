@@ -1,0 +1,19 @@
+/* создание таблицы client */
+create table client (ClientID INT NOT NULL, LastName VARCHAR(250) NOT NULL, FirstName VARCHAR(250),
+                    BirthDate date NOT NULL, Phone BIGINT NOT NULL, Primary Key (ClientID))
+/* наполнение таблицы client */
+insert into client (ClientID, LastName, FirstName, BirthDate, Phone) VALUES (2, 'Липская', 'Виктория', '1980-02-13', 79111111111)
+insert into client (ClientID, LastName, FirstName, BirthDate, Phone) VALUES (3, 'Пуртов', 'Дмитрий', '1971-06-23', 89627144523)
+insert into client (ClientID, LastName, FirstName, BirthDate, Phone) VALUES (4, 'Нестерова', 'Анастасия', '1977-08-25', 89652365444)
+insert into client (ClientID, LastName, FirstName, BirthDate, Phone) VALUES (5, 'Григоров', 'Виталий', '1988-01-27', 89622222222)
+insert into client (ClientID, LastName, FirstName, BirthDate, Phone) VALUES (6, 'Лимонов', 'Петр', '1960-05-30', 89512122222)
+/* создание таблицы order1 */
+create table order1 (OrderID INT NOT NULL, ClientID INT NOT NULL, OrderDate date NOT NULL,
+                    PRIMARY KEY (OrderID), FOREIGN KEY (ClientID) REFERENCES client(ClientID))
+/* наполнение таблицы order1 */
+insert into order1 (OrderID, ClientID, OrderDate) VALUES (111202, 2, '2015-07-14')
+insert into order1 (OrderID, ClientID, OrderDate) VALUES (111205, 55, '2015-07-14') /* не удается внести */
+insert into order1 (OrderID, ClientID, OrderDate) VALUES (111206, 5, '2015-07-22')
+insert into order1 (OrderID, ClientID, OrderDate) VALUES (111207, 44, '2015-07-24') /* не удается внести */
+insert into order1 (OrderID, ClientID, OrderDate) VALUES (111208, 2, '2015-07-26')
+insert into order1 (OrderID, ClientID, OrderDate) VALUES (111209, 2, '2015-08-30')
