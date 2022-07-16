@@ -9,3 +9,40 @@ select MIN(year) from superheroes
 select MAX(year) from superheroes
 select name from superheroes where appearances < 200 and year = (select MAX(year) from superheroes) 
 select * from customers c join orders o on c.id=o.customer_id join sales s on o.id=s.order_id join products pr on s.product_id=pr.id join product_types pr_t on pr.type_id=pr_t.id
+/* задача 12 */
+select c.name from customers c
+join orders o on c.id=o.customer_id
+join sales s on o.id=s.order_id
+join products pr on s.product_id=pr.id
+join product_types pr_t on pr.type_id=pr_t.id 
+where (pr_t.type_name = 'Книга' or pr_t.type_name = 'Онлайн-курс') and pr.name like '%нейронных%'
+/* задача 13 */
+select c.name, o.order_date, pr.name, s.quantity from customers c
+join orders o on c.id=o.customer_id
+join sales s on o.id=s.order_id
+join products pr on s.product_id=pr.id
+join product_types pr_t on pr.type_id=pr_t.id
+/* задача 14 */
+select c.name from customers c
+join orders o on c.id=o.customer_id
+join sales s on o.id=s.order_id
+join products pr on s.product_id=pr.id
+join product_types pr_t on pr.type_id=pr_t.id where s.quantity = 2
+/* задача 15 */
+select c.name as ФИО, pr.name AS Название_курса, o.order_date AS Дата_заказа from customers c
+join orders o on c.id=o.customer_id
+join sales s on o.id=s.order_id
+join products pr on s.product_id=pr.id
+join product_types pr_t on pr.type_id=pr_t.id where pr.name = 'Математика для DataScience'
+/* задача 16 */
+select distinct c.name as ФИО from customers c
+join orders o on c.id=o.customer_id
+join sales s on o.id=s.order_id
+join products pr on s.product_id=pr.id
+join product_types pr_t on pr.type_id=pr_t.id where pr_t.type_name = 'Книга'
+/* задача 17 */
+select o.order_date AS Дата from customers c
+join orders o on c.id=o.customer_id
+join sales s on o.id=s.order_id
+join products pr on s.product_id=pr.id
+join product_types pr_t on pr.type_id=pr_t.id where pr_t.type_name = 'Онлайн-курс' and pr.price >=30000
