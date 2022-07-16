@@ -61,7 +61,14 @@ join sales s on o.id=s.order_id
 join products pr on s.product_id=pr.id
 join product_types pr_t on pr.type_id=pr_t.id where pr_t.type_name = 'Онлайн-курс' and pr.price >=30000
 /* задача 18 */
+Update sales
+set quantity = 3
+where sales.product_id=(select id from products where price = 30000 and type_id is not NULL)
 /* задача 19 */
+Update sales
+set quantity = 4
+where sales.order_id=(select o.id from orders o join customers c on o.customer_id=c.id where c.name='Петр Иванов')
 /* задача 20 */
+
 /* задача 21 */
 /* задача 22 */
