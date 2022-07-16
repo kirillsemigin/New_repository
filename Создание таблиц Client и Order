@@ -17,3 +17,8 @@ insert into order1 (OrderID, ClientID, OrderDate) VALUES (111206, 5, '2015-07-22
 insert into order1 (OrderID, ClientID, OrderDate) VALUES (111207, 44, '2015-07-24') /* не удается внести */
 insert into order1 (OrderID, ClientID, OrderDate) VALUES (111208, 2, '2015-07-26')
 insert into order1 (OrderID, ClientID, OrderDate) VALUES (111209, 2, '2015-08-30')
+/* Запрос для получения списка клиентов сделавших менее 25 заказов за 2015 год. Запрос должен выводить инфомацию о клиенте (фамилия, имя) и кол-во заказов в порядке убывания*/
+select LastName AS Фамилия, FirstName as Имя, Count(o.orderid) As Количество from client c join order1 o on c.clientid=o.clientid 
+where o.OrderDate Between '2015-01-01' and '2015-12-31' 
+group by c.clientid 
+having Count(o.orderid) < 25
