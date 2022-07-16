@@ -1,0 +1,9 @@
+select * from superheroes where name like 'A%' and year > 1981 
+select * from superheroes where name like '%Earth-616%' 
+select name, align, appearances from superheroes where hair='Bald' 
+select name as имя, align, appearances from superheroes where appearances > 1000 order by appearances asc 
+select name as имя, gender as пол, hair as волосы from superheroes where (eye = 'Brown Eyes' or eye='Blue Eyes') and appearances < 350
+select name, year from superheroes where appearances between 50 and 70 order by appearances
+select AVG(year) from superheroes
+select MIN(year) from superheroes
+select MAX(year) from superheroes
