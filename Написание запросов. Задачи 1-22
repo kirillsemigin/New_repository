@@ -1,14 +1,28 @@
+/* задача 1 */
 select * from superheroes where name like 'A%' and year > 1981 
-select * from superheroes where name like '%Earth-616%' 
-select name, align, appearances from superheroes where hair='Bald' 
-select name as имя, align, appearances from superheroes where appearances > 1000 order by appearances asc 
+/* задача 2 */
+select * from superheroes where name like '%Earth-616%'
+/* задача 3 */
+select name, align, appearances from superheroes where hair='Bald'
+/* задача 4 */
+select name as имя, align, appearances from superheroes where appearances > 1000 order by appearances asc
+/* задача 5 */
 select name as имя, gender as пол, hair as волосы from superheroes where (eye = 'Brown Eyes' or eye='Blue Eyes') and appearances < 350
+/* задача 6 */
 select name, year from superheroes where appearances between 50 and 70 order by appearances
+/* задача 7 */
 select AVG(year) from superheroes
+/* задача 8 */
 select MIN(year) from superheroes
+/* задача 9 */
 select MAX(year) from superheroes
+/* задача 10 */
 select name from superheroes where appearances < 200 and year = (select MAX(year) from superheroes) 
-select * from customers c join orders o on c.id=o.customer_id join sales s on o.id=s.order_id join products pr on s.product_id=pr.id join product_types pr_t on pr.type_id=pr_t.id
+/* задача 11 */
+select * from customers c join orders o on c.id=o.customer_id 
+join sales s on o.id=s.order_id 
+join products pr on s.product_id=pr.id 
+join product_types pr_t on pr.type_id=pr_t.id
 /* задача 12 */
 select c.name from customers c
 join orders o on c.id=o.customer_id
@@ -46,3 +60,8 @@ join orders o on c.id=o.customer_id
 join sales s on o.id=s.order_id
 join products pr on s.product_id=pr.id
 join product_types pr_t on pr.type_id=pr_t.id where pr_t.type_name = 'Онлайн-курс' and pr.price >=30000
+/* задача 18 */
+/* задача 19 */
+/* задача 20 */
+/* задача 21 */
+/* задача 22 */
