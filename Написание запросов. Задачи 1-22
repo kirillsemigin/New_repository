@@ -7,3 +7,4 @@ select name, year from superheroes where appearances between 50 and 70 order by 
 select AVG(year) from superheroes
 select MIN(year) from superheroes
 select MAX(year) from superheroes
+select name from superheroes where appearances < 200 and year = (select MAX(year) from superheroes) 
