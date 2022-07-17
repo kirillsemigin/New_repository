@@ -86,4 +86,13 @@ join products pr on s.product_id=pr.id
 join product_types pr_t on pr.type_id=pr_t.id 
 where pr_t.type_name = 'Онлайн-курс' and s.quantity between 2 and 4
 /* задача 22 */
-
+insert into customers (id, name, email) values ('9', 'Junior', 'test@test.ru')
+insert into orders (id, order_date, customer_id) values ('7', '2022-07-17', '9')
+insert into product_types (id, type_name) values ('5', 'Лекция')
+insert into products (id, name, type_id, price) values ('14', 'SQL для самых маденьких', '5', 2000)
+insert into sales (product_id, order_id, quantity) values ('14', '7', '10')
+select * from customers c join orders o on c.id=o.customer_id 
+join sales s on o.id=s.order_id 
+join products pr on s.product_id=pr.id 
+join product_types pr_t on pr.type_id=pr_t.id
+where c.name = 'Junior'
