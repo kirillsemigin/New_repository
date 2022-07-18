@@ -35,7 +35,6 @@ select c.name, o.order_date, pr.name, s.quantity from customers c
 join orders o on c.id=o.customer_id
 join sales s on o.id=s.order_id
 join products pr on s.product_id=pr.id
-join product_types pr_t on pr.type_id=pr_t.id
 /* задача 14 */
 select c.name from customers c
 join orders o on c.id=o.customer_id
