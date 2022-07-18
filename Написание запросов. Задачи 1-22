@@ -1,73 +1,92 @@
 /* задача 1 */
-select * from superheroes where name like 'A%' and year > 1981 
+select * from superheroes where name like 'A%' and year > 1981; 
+
 /* задача 2 */
-select * from superheroes where name like '%Earth-616%'
+select * from superheroes where name like '%Earth-616%';
+
 /* задача 3 */
-select name, align, appearances from superheroes where hair='Bald'
+select name, align, appearances from superheroes where hair='Bald';
+
 /* задача 4 */
-select name as имя, align, appearances from superheroes where appearances > 1000 order by appearances asc
+select name as имя, align, appearances from superheroes where appearances > 1000 order by appearances asc;
+
 /* задача 5 */
-select name as имя, gender as пол, hair as волосы from superheroes where (eye = 'Brown Eyes' or eye='Blue Eyes') and appearances < 350
+select name as имя, gender as пол, hair as волосы from superheroes where (eye = 'Brown Eyes' or eye='Blue Eyes') and appearances < 350;
+
 /* задача 6 */
-select name, year from superheroes where appearances between 50 and 70 order by appearances
+select name, year from superheroes where appearances between 50 and 70 order by appearances;
+
 /* задача 7 */
-select AVG(year) from superheroes
+select AVG(year) from superheroes;
+
 /* задача 8 */
-select MIN(year) from superheroes
+select MIN(year) from superheroes;
+
 /* задача 9 */
-select MAX(year) from superheroes
+select MAX(year) from superheroes;
+
 /* задача 10 */
-select name from superheroes where appearances < 200 and year = (select MAX(year) from superheroes) 
+select name from superheroes where appearances < 200 and year = (select MAX(year) from superheroes);
+
 /* задача 11 */
 select * from customers c join orders o on c.id=o.customer_id 
 join sales s on o.id=s.order_id 
 join products pr on s.product_id=pr.id 
-join product_types pr_t on pr.type_id=pr_t.id
+join product_types pr_t on pr.type_id=pr_t.id;
+
 /* задача 12 */
 select c.name from customers c
 join orders o on c.id=o.customer_id
 join sales s on o.id=s.order_id
 join products pr on s.product_id=pr.id
 join product_types pr_t on pr.type_id=pr_t.id 
-where (pr_t.type_name = 'Книга' or pr_t.type_name = 'Онлайн-курс') and pr.name like '%нейронных%'
+where (pr_t.type_name = 'Книга' or pr_t.type_name = 'Онлайн-курс') and pr.name like '%нейронных%';
+
 /* задача 13 */
 select c.name, o.order_date, pr.name, s.quantity from customers c
 join orders o on c.id=o.customer_id
 join sales s on o.id=s.order_id
-join products pr on s.product_id=pr.id
+join products pr on s.product_id=pr.id;
+
 /* задача 14 */
 select c.name from customers c
 join orders o on c.id=o.customer_id
 join sales s on o.id=s.order_id
-where s.quantity = 2
+where s.quantity = 2;
+
 /* задача 15 */
 select c.name as ФИО, pr.name AS Название_курса, o.order_date AS Дата_заказа from customers c
 join orders o on c.id=o.customer_id
 join sales s on o.id=s.order_id
 join products pr on s.product_id=pr.id
 join product_types pr_t on pr.type_id=pr_t.id 
-where pr.name = 'Математика для DataScience'
+where pr.name = 'Математика для DataScience';
+
 /* задача 16 */
 select distinct c.name as ФИО from customers c
 join orders o on c.id=o.customer_id
 join sales s on o.id=s.order_id
 join products pr on s.product_id=pr.id
-join product_types pr_t on pr.type_id=pr_t.id where pr_t.type_name = 'Книга'
+join product_types pr_t on pr.type_id=pr_t.id where pr_t.type_name = 'Книга';
+
 /* задача 17 */
 select o.order_date AS Дата from customers c
 join orders o on c.id=o.customer_id
 join sales s on o.id=s.order_id
 join products pr on s.product_id=pr.id
 join product_types pr_t on pr.type_id=pr_t.id 
-where pr_t.type_name = 'Онлайн-курс' and pr.price >=30000
+where pr_t.type_name = 'Онлайн-курс' and pr.price >=30000;
+
 /* задача 18 */
 Update sales
 set quantity = 3
-where sales.product_id=(select id from products where price = 30000 and type_id is not NULL)
+where sales.product_id=(select id from products where price = 30000 and type_id is not NULL);
+
 /* задача 19 */
 Update sales
 set quantity = 4
-where sales.order_id=(select o.id from orders o join customers c on o.customer_id=c.id where c.name='Петр Иванов')
+where sales.order_id=(select o.id from orders o join customers c on o.customer_id=c.id where c.name='Петр Иванов');
+
 /* задача 20 */
 Update customers
 set name = 'Test User' 
@@ -76,21 +95,24 @@ join orders o on c.id=o.customer_id
 join sales s on o.id=s.order_id
 join products pr on s.product_id=pr.id
 join product_types pr_t on pr.type_id=pr_t.id 
-where pr_t.type_name = 'Онлайн-курс' and pr.name like '%Программирование%')
+where pr_t.type_name = 'Онлайн-курс' and pr.name like '%Программирование%');
+
 /* задача 21 */
 select order_date from orders o join sales s on o.id=s.order_id
 join products pr on s.product_id=pr.id
 join product_types pr_t on pr.type_id=pr_t.id 
-where pr_t.type_name = 'Онлайн-курс' and s.quantity between 2 and 4
+where pr_t.type_name = 'Онлайн-курс' and s.quantity between 2 and 4;
+
 /* задача 22 */
-insert into customers (id, name, email) values ('9', 'Junior', 'test@test.ru')
-insert into orders (id, order_date, customer_id) values ('7', '2022-07-17', '9')
-insert into product_types (id, type_name) values ('5', 'Лекция')
-insert into products (id, name, type_id, price) values ('14', 'SQL для самых маденьких', '5', 2000)
-insert into sales (product_id, order_id, quantity) values ('14', '7', '10')
+insert into customers (id, name, email) values ('9', 'Junior', 'test@test.ru');
+insert into orders (id, order_date, customer_id) values ('7', '2022-07-17', '9');
+insert into product_types (id, type_name) values ('5', 'Лекция');
+insert into products (id, name, type_id, price) values ('14', 'SQL для самых маденьких', '5', 2000);
+insert into sales (product_id, order_id, quantity) values ('14', '7', '10');
+
 /* запрос для вывода новых добавленных строк с данными */
 select * from customers c join orders o on c.id=o.customer_id 
 join sales s on o.id=s.order_id 
 join products pr on s.product_id=pr.id 
 join product_types pr_t on pr.type_id=pr_t.id
-where c.name = 'Junior'
+where c.name = 'Junior';
