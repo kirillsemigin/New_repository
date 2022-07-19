@@ -1,8 +1,16 @@
 /* создание таблицы Адреса */
-create table addresses (ID serial Primary Key, home_address VARCHAR(250), business_address VARCHAR(250), city VARCHAR(250);
+create table addresses (ID serial Primary Key, home_address VARCHAR(250), business_address VARCHAR(250), city VARCHAR(250), FOREIGN KEY (id) REFERENCES customers(id));
 
 /* внесение данных в таблицу Адреса */
-insert into addresses (home_address, business_address, city) VALUES ( 'Рязанский проспект д.8', 'Медиков 22', 'Москва')
-insert into addresses (home_address, business_address, city) VALUES ( 'Молостовых 16', 'Базовская 1', 'Москва')
+insert into addresses (home_address, business_address, city) VALUES ( 'Рязанский проспект д.8', 'Медиков 22', 'Москва');
+insert into addresses (home_address, business_address, city) VALUES ( 'Молостовых 16', 'Базовская 1', 'Москва');
+insert into addresses (home_address, business_address, city) VALUES ( 'Поречная 132', 'Ереванская 20', 'Уфа');
+insert into addresses (home_address, business_address, city) VALUES ( 'Трифоновская 31', 'Щепкина 68', 'Орехово-зуево');
+insert into addresses (home_address, business_address, city) VALUES ( 'Русковская 10', 'Новорязанская 32', 'Москва');
+insert into addresses (home_address, business_address, city) VALUES ( 'Самотечная 17', 'Сущевская 32', 'Москва');
+insert into addresses (home_address, business_address, city) VALUES ( 'Фадеева 2', 'Трубная 36', 'Санкт-Петербург');
+insert into addresses (home_address, business_address, city) VALUES ( 'Южная 14', 'Солнечная 46', 'Саратов');
+insert into addresses (home_address, business_address, city) VALUES ( 'Плющиха 39', 'Усачева 50', 'Москва');
 
 /* создание таблицы Телефоны */
+create table phone (ID serial Primary Key, home_phone BIGINT, business_phone BIGINT, FOREIGN KEY (id) REFERENCES addresses(id));
