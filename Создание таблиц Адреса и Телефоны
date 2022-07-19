@@ -1,0 +1,1 @@
+create table addresses (ID serial Primary Key, home_address VARCHAR(250), business_address VARCHAR(250), city VARCHAR(250))
