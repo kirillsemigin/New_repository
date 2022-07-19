@@ -1,1 +1,8 @@
-create table addresses (ID serial Primary Key, home_address VARCHAR(250), business_address VARCHAR(250), city VARCHAR(250))
+/* создание таблицы Адреса */
+create table addresses (ID serial Primary Key, home_address VARCHAR(250), business_address VARCHAR(250), city VARCHAR(250);
+
+/* внесение данных в таблицу Адреса */
+insert into addresses (home_address, business_address, city) VALUES ( 'Рязанский проспект д.8', 'Медиков 22', 'Москва')
+insert into addresses (home_address, business_address, city) VALUES ( 'Молостовых 16', 'Базовская 1', 'Москва')
+
+/* создание таблицы Телефоны */
