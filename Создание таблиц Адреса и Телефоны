@@ -14,3 +14,13 @@ insert into addresses (home_address, business_address, city) VALUES ( 'Плющ�
 
 /* создание таблицы Телефоны */
 create table phone (ID serial Primary Key, home_phone BIGINT, business_phone BIGINT, FOREIGN KEY (id) REFERENCES addresses(id));
+/* внесение данных в таблицу Телефоны */
+insert into phone (home_number, business_number) VALUES ( '84954352254', '89636213333')
+insert into phone (home_number, business_number) VALUES ( '89154069883', '89167765432')
+insert into phone (home_number, business_number) VALUES ( '89169881180', '89099126911')
+insert into phone (home_number, business_number) VALUES ( '89672057836', '89197700407')
+insert into phone (home_number, business_number) VALUES ( '89778719231', '89859093665')
+insert into phone (home_number, business_number) VALUES ( '89268989557', '89530273736')
+insert into phone (home_number, business_number) VALUES ( '89151593874', '89771368654')
+insert into phone (home_number, business_number) VALUES ( '89165645202', '89911740014')
+insert into phone (home_number, business_number) VALUES ( '89153714044', '89779485430')
