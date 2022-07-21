@@ -1,0 +1,2 @@
+CREATE VIEW customers_v AS SELECT * FROM Customers
+DROP VIEW customers_v
