@@ -1,0 +1,26 @@
+select * from products p join product_types pr on p.type_id=pr.id 
+
+select name, type_name from products p join product_types pr on p.type_id=pr.id where price = 30000
+
+select * from phones
+
+insert into customers VALUES (10, 'Valentino Rossi', 'vale46@gmai.com')
+
+select * from customers 
+
+create view customer_info AS select c.id AS id, 
+c.name AS name, 
+c.email AS email, 
+c.addresses_id AS addresses_id, 
+c.phones_id AS phones_id, 
+a.home_address AS home_address, 
+a.business_address AS business_address, 
+a.city AS city,
+p.home_number AS home_number,
+p.business_number AS business_number,
+p.name AS p_name
+from customers c 
+join addresses a on  c.addresses_id=a.id 
+join phones p on c.phones_id=p.id
+
+select * from customer_info
